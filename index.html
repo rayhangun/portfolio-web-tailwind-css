@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,6 +8,13 @@
     <link href="dist/output.css" rel="stylesheet" />
     <!-- Tailwind CSS end -->
     <title>Rayhan Gunaningrat</title>
+    <!-- Dark Mode -->
+    <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }</script>
   </head>
   <body>
     <!-- Header & Navbar start -->
@@ -27,28 +34,44 @@
 
             <nav id="nav-menu" class="hidden absolute py-5 bg-white shadow-lg
             rounded-lg max-w-[250px] w-full right-3 top-full lg:block lg:static lg:bg-transparent
-            lg:max-w-full lg:shadow-none lg:rounded-none">
+            lg:max-w-full lg:shadow-none lg:rounded-none dark:bg-slate-800 lg:dark:bg-transparent">
               <ul class="block lg:flex">
                 <li class="group">
                   <a href="#home" class="text-base text-dark py-2 mx-8 flex 
-                  group-hover:text-primary">Home</a>
+                  group-hover:text-primary dark:text-white">Home</a>
                 </li>
                 <li class="group">
                   <a href="#about" class="text-base text-dark py-2 mx-8 flex
-                  group-hover:text-primary">About Me</a>
+                  group-hover:text-primary dark:text-white">About Me</a>
                 </li>
                 <li class="group">
-                  <a href="#skills" class="text-base text-dark py-2 mx-8 flex
-                  group-hover:text-primary">Skills</a>
+                  <a href="#skill" class="text-base text-dark py-2 mx-8 flex
+                  group-hover:text-primary dark:text-white">Skills</a>
                 </li>
                 <li class="group">
                   <a href="#portfolio" class="text-base text-dark py-2 mx-8 flex
-                  group-hover:text-primary">Portfolio</a>
+                  group-hover:text-primary dark:text-white">Portfolio</a>
                 </li>
                 <li class="group">
                   <a href="#contact" class="text-base text-dark py-2 mx-8 flex
-                  group-hover:text-primary">Contact</a>
+                  group-hover:text-primary dark:text-white">Contact</a>
                 </li>
+                <!-- Tombol Dark Mode start -->
+                <li class="mt-2 flex items-center pl-8 lg:mt-0">
+                  <div class="flex">
+                    <span class="mr-2 text-base text-slate-400">Light</span>
+                    <input type="checkbox" class="hidden" id="dark-mode">
+                    <label for="dark-mode">
+                      <div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1">
+                        <div class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300
+                        ease-in-out">
+                        </div>
+                      </div>
+                    </label>
+                    <span class="ml-2 text-base text-slate-400">Dark</span>
+                  </div>
+                </li>
+                <!-- Tombol Dark Mode end -->
               </ul>
             </nav>
           </div>
@@ -58,13 +81,13 @@
     <!-- Header & Navbar end -->
 
     <!-- Hero Section start -->
-    <section id="home" class="pt-36">
+    <section id="home" class="pt-36 dark:bg-dark">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="w-full self-center px-4 lg:w-1/2">
-            <h1 class="text-base font-semibold text-primary md:text-xl">Hello &#128075, I am <span class="block font-bold text-dark text-4xl lg:text-4xl">Rayhan Gunaningrat</span></h1>
-            <h2 class="text-lg text-slate-500 font-medium mb-5 lg:text-2xl">Web Developer & Business Lecturer</h2>
-            <p class="font-medium text-lg text-slate-700 mb-10">Bridging Technical and Business Perspectives for Innovative Solutions.</p>
+            <h1 class="text-base font-semibold text-primary md:text-xl">Hello &#128075, I am <span class="block font-bold text-dark text-4xl lg:text-4xl dark:text-white">Rayhan Gunaningrat</span></h1>
+            <h2 class="text-lg text-slate-500 font-medium mb-5 lg:text-2xl dark:text-slate-300">Web Developer & Business Lecturer</h2>
+            <p class="font-medium text-lg text-slate-700 mb-10 dark:text-slate-300">Bridging Technical and Business Perspectives for Innovative Solutions.</p>
 
               <a href="https://wa.me/6285876143559" target="_blank" class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full
               hover:shadow-lg hover:bg-emerald-400 transition duration-300 ease-in-out">Contact Me</a>
@@ -72,8 +95,8 @@
           <div class="w-full self-end px-4 lg:w-1/2">
             <div class="relative mt-10 lg:mt-9 lg:right-0">
               <img src="dist/img/foto_rayhan.png" alt="Rayhan Gunaningrat"
-              class="max-w-full mx-auto">
-              <span class="absolute -bottom-24 -z-10 left-1/2 -translate-x-1/2 md:scale-150 md:-bottom-5">
+              class="relative z-10 max-w-full mx-auto">
+              <span class="absolute -bottom-24 left-1/2 -translate-x-1/2 md:scale-150 md:-bottom-5">
                 <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                   <path fill="#10b981" d="M31.6,-48.6C45.7,-46.5,65.1,-47.7,76.9,-40.1C88.7,-32.6,92.8,-16.3,91.7,-0.6C90.7,15.1,84.6,30.2,75.5,42.5C66.5,54.8,54.6,64.4,41.5,70.5C28.5,76.7,14.2,79.3,-0.6,80.4C-15.4,81.4,-30.8,80.7,-39.1,71.9C-47.5,63,-48.7,45.9,-57.4,32.5C-66.2,19.2,-82.5,9.6,-87.2,-2.7C-91.8,-15,-84.9,-30,-75.9,-43C-67,-56,-56,-67,-43,-69.7C-30,-72.5,-15,-67,-3.1,-61.6C8.7,-56.1,17.4,-50.7,31.6,-48.6Z" 
                   transform="translate(100 100) scale(0.6)" />
@@ -87,18 +110,18 @@
     <!-- Hero Section end -->
 
     <!-- About Section start -->
-    <section id="about" class="pt-36 pb-32">
+    <section id="about" class="pt-36 pb-32 dark:bg-dark">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="w-full px-4 mb-10 lg:w-1/2">
-            <h4 class="font-bold text-dark text-2xl mb-3">About Me</h4>
-            <p class="text-base max-w-xl lg:text-lg">I am a web developer and business lecturer with a combination of technical expertise and business acumen. Proficient in coding languages like HTML, CSS, and JavaScript, and experienced in designing visually appealing websites, I have experienced in creating responsive web solutions. As a business lecturer, I possess a deep understanding of various business concepts and deliver engaging lectures.
+            <h4 class="font-bold text-dark text-2xl mb-3 dark:text-white">About Me</h4>
+            <p class="text-base max-w-xl lg:text-lg dark:text-white">I am a web developer and business lecturer with a combination of technical expertise and business acumen. Proficient in coding languages like HTML, CSS, and JavaScript, and experienced in designing visually appealing websites, I have experienced in creating responsive web solutions. As a business lecturer, I possess a deep understanding of various business concepts and deliver engaging lectures.
               I excel at translating business requirements into technical specifications and am committed to continuous learning and professional growth in web development and business.</p>
           </div>
           <div class="w-full px-4 lg:w-1/2">
-            <h3 class="font-bold text-dark text-2xl mb-3">Let's Connect!</h3>
-            <p class="text-base mb-6 lg:text-lg">As someone who is passionate about both web development and business, I'm always excited to connect with others who share the similar enthusiasm for using technology to drive innovation and growth. Whether you're a fellow developer or a business enthusiast, I'm eager to exchange ideas and collaborate on projects that push the boundaries of what's possible. Check out my social media link below and feel free to connect with me.</p>
-            <div class="flex items-center">
+            <h3 class="font-bold text-dark text-2xl mb-3 dark:text-white">Let's Connect!</h3>
+            <p class="text-base mb-6 lg:text-lg dark:text-white">As someone who is passionate about both web development and business, I'm always excited to connect with others who share the similar enthusiasm for using technology to drive innovation and growth. Whether you're a fellow developer or a business enthusiast, I'm eager to exchange ideas and collaborate on projects that push the boundaries of what's possible. Check out my social media link below and feel free to connect with me.</p>
+            <div class="flex items-center dark:text-white">
               <!-- LinkedIn -->
               <a href="https://www.linkedin.com/in/rayhangun/" target="_blank"
               class="w-11 h-11 mr-3 rounded-full flex justify-center items-center border border-slate-500
@@ -131,12 +154,12 @@
     <!-- About Section end -->
 
     <!-- Portfolio Section start -->
-    <section id="portfolio" class="pt-36 pb-16 bg-slate-100">
+    <section id="portfolio" class="pt-36 pb-16 bg-slate-100 dark:bg-slate-800">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-2xl text-primary mb-2">Portfolio</h4>
-            <h2 class="font-bold text-dark text-3xl mb-4">Current Projects</h2>
+            <h2 class="font-bold text-dark text-3xl mb-4 dark:text-white">Current Projects</h2>
           </div>
         </div>
 
@@ -146,7 +169,7 @@
                <img src="dist/img/portfolio/port1.png" alt="e-commerce website" 
                width="w-full">
             </div>
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3">E-Commerce Website "Garasi Mobil"</h3>
+            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">E-Commerce Website "Garasi Mobil"</h3>
             <p class="font-medium text-base text-slate-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum laboriosam culpa error, pariatur inventore eum.</p>
           </div>
           <div class="mb-12 p-4 md:w-1/2">
@@ -154,7 +177,7 @@
                <img src="dist/img/portfolio/port2.png" alt="LMS website" 
                width="w-full">
             </div>
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3">LMS Website "Sekolah Bisnis Syariah"</h3>
+            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">LMS Website "Sekolah Bisnis Syariah"</h3>
             <p class="font-medium text-base text-slate-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum laboriosam culpa error, pariatur inventore eum.</p>
           </div>
           <div class="mb-12 p-4 md:w-1/2">
@@ -162,7 +185,7 @@
                <img src="dist/img/portfolio/port3.png" alt="calculator website" 
                width="w-full">
             </div>
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Calculator Website</h3>
+            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">Calculator Website</h3>
             <p class="font-medium text-base text-slate-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum laboriosam culpa error, pariatur inventore eum.</p>
           </div>
           <div class="mb-12 p-4 md:w-1/2">
@@ -170,7 +193,7 @@
                <img src="dist/img/portfolio/port4.png" alt="landing page using google site" 
                width="w-full">
             </div>
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Landing Page "Sekolah Bisnis Syariah" using Google Site</h3>
+            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">Landing Page "Sekolah Bisnis Syariah" using Google Site</h3>
             <p class="font-medium text-base text-slate-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum laboriosam culpa error, pariatur inventore eum.</p>
           </div>
         </div>
@@ -179,12 +202,12 @@
     <!-- Portfolio Section end -->
 
     <!-- Skills Section start -->
-    <section id="skill" class="pt-36 pb-32 bg-slate-700">
+    <section id="skill" class="pt-36 pb-32 bg-slate-700 dark:bg-slate-300">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-2xl text-primary mb-2">Skills</h4>
-            <h2 class="font-bold text-white text-3xl mb-4">Tech Stacks & Tools Used</h2>
+            <h2 class="font-bold text-white text-3xl mb-4 dark:text-dark">Tech Stacks & Tools Used</h2>
           </div>
         </div>
         <div class="w-full px-4">
@@ -192,47 +215,47 @@
             <div class="my-4">
               <img src="dist/img/skills/HTML5_Badge.png" alt="html 5" class="max-w-[120px] mx-4 py-4 
               grayscale transition hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <h3 class="text-white text-center font-bold mt-4">HTML 5</h3>
+              <h3 class="text-white text-center font-bold mt-4 dark:text-dark">HTML 5</h3>
             </div>
             <div class="my-4">
               <img src="dist/img/skills/CSS3_logo.png" alt="css 3" class="max-w-[120px] mx-4 py-4 
               grayscale transition hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <h3 class="text-white text-center font-bold mt-4">CSS 3</h3>
+              <h3 class="text-white text-center font-bold mt-4 dark:text-dark">CSS 3</h3>
             </div>
             <div class="my-4">
               <img src="dist/img/skills/Unofficial_JavaScript_logo_2.png" alt="JavaScript" class="max-w-[120px] mx-4 py-4 
               grayscale transition hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <h3 class="text-white text-center font-bold mt-4">JavaScript</h3>
+              <h3 class="text-white text-center font-bold mt-4 dark:text-dark">JavaScript</h3>
             </div>
             <div class="my-4">
               <img src="dist/img/skills/Tailwind_CSS_Logo.png" alt="Tailwind CSS" class="max-w-[120px] mx-4 py-4 
               grayscale transition hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <h3 class="text-white text-center font-bold mt-4">Tailwind CSS</h3>
+              <h3 class="text-white text-center font-bold mt-4 dark:text-dark">Tailwind CSS</h3>
             </div>
             <div class="my-4">
               <img src="dist/img/skills/python.png" alt="Python" class="max-w-[120px] mx-4 py-4 
               grayscale transition hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <h3 class="text-white text-center font-bold">Python</h3>
+              <h3 class="text-white text-center font-bold dark:text-dark">Python</h3>
             </div>
             <div class="my-4">
               <img src="dist/img/skills/Git_icon.png" alt="Git" class="max-w-[120px] mx-4 py-4 
               grayscale transition hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <h3 class="text-white text-center font-bold mt-4">Git</h3>
+              <h3 class="text-white text-center font-bold mt-4 dark:text-dark">Git</h3>
             </div>
             <div class="my-4">
               <img src="dist/img/skills/vs-code.png" alt="Visual Studio Code" class="max-w-[120px] mx-4 py-4 
               grayscale transition hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <h3 class="text-white text-center font-bold mt-5">Visual Studio Code</h3>
+              <h3 class="text-white text-center font-bold mt-5 dark:text-dark">Visual Studio Code</h3>
             </div>
             <div class="my-4">
               <img src="dist/img/skills/jupyter.png" alt="Jupyter Notebook" class="max-w-[120px] mx-4 py-4 
               grayscale transition hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <h3 class="text-white text-center font-bold">Jupyter Notebook</h3>
+              <h3 class="text-white text-center font-bold dark:text-dark">Jupyter Notebook</h3>
             </div>
             <div class="my-4">
               <img src="dist/img/skills/canva.png" alt="Canva" class="max-w-[120px] mx-4 py-4 
               grayscale transition hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <h3 class="text-white text-center font-bold mt-4">Canva</h3>
+              <h3 class="text-white text-center font-bold mt-4 dark:text-dark">Canva</h3>
             </div>
           </div>
         </div>
@@ -241,12 +264,12 @@
     <!-- Skills Section end -->
 
     <!-- Contact Section start -->
-    <section id="contact" class="pt-36 pb-32">
+    <section id="contact" class="pt-36 pb-32 dark:bg-dark">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-2xl text-primary mb-2">Contact</h4>
-            <h2 class="font-bold text-dark text-3xl mb-4">Need a further info? Contact me &#128513;</h2>
+            <h2 class="font-bold text-dark text-3xl mb-4 dark:text-white">Need a further info? Contact me &#128513;</h2>
           </div>
         </div>
 
@@ -347,6 +370,13 @@
       </div>
     </footer>
     <!-- Footer end -->
+
+    <!-- Back-to-top start -->
+    <a href="#home" class="fixed bottom-4 right-4 p-4 z-[9999] h-14 w-14 bg-primary rounded-full
+    justify-center items-center hover:animate-pulse hidden" id="back-to-top">
+      <span class="block w-5 h-5 border-t-4 border-l-4 rotate-45 mt-2"></span>
+    </a>
+    <!-- Back-to-top end -->
 
   <script src="dist/js/script.js"></script>
   </body>
